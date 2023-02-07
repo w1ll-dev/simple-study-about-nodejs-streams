@@ -8,8 +8,8 @@ import csvtojson from 'csvtojson'
 const PORT = 3000;
 
 const headers = {
-  'Access-Controll-Allow-Origin': '*',
-  'Access-Controll-Allow-Methods': '*'
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': '*'
 }
 
 const checkHeaders = (request, response) => {
@@ -51,7 +51,7 @@ const requestListner = async (request, response) => {
     // the last step
     .pipeTo(new WritableStream({
       async write(chunk) {
-        await setTimeout(1000)
+        await setTimeout(200)
         items++
         response.write(chunk)
       },
